@@ -1,4 +1,4 @@
-import java.sql.*;
+/*import java.sql.*;
 import javafx.scene.control.Label;
 
 public class Database {
@@ -22,4 +22,4 @@ public class Database {
             statusLabel.setText("DB Error: " + e.getMessage());
         }
     }
-}
+}*/
