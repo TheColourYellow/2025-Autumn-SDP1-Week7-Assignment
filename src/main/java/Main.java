@@ -14,7 +14,7 @@ public class Main extends Application {
     private Label resultLabel = new Label();
     private ComboBox degreeChoiceIni = new ComboBox();
     private ComboBox degreeChoiceFin = new ComboBox();
-    private double fahrenheit;
+    private double result;
 
     public static void main(String[] args) {
         launch(args);
@@ -43,9 +43,22 @@ public class Main extends Application {
 
     private void convertTemperature() {
         try {
-            double celsius = Double.parseDouble(inputField.getText());
-            fahrenheit = (celsius * 9 / 5) + 32;
-            resultLabel.setText(String.format("Fahrenheit: %.2f", fahrenheit));
+            double value = Double.parseDouble(inputField.getText());
+
+            if (degreeChoiceIni.getValue().equals("Fahrenheit") &&
+                    degreeChoiceFin.getValue().equals("Celsius")) {
+                result = fahrenheitToCelsius(value);
+                resultLabel.setText("Celsius: " + result);
+            }
+            else if (degreeChoiceIni.getValue().equals("Celsius") && degreeChoiceFin.getValue().equals("Fahrenheit") ) {
+                result = celsiusToFahrenheit(value);
+                resultLabel.setText("Fahrenheit: " + result);
+            }
+            else if (degreeChoiceIni.getValue().equals("Kelvin") && degreeChoiceFin.getValue().equals("Celsius") ) {
+                result = kelvinToCelsius(value);
+                resultLabel.setText("Celsius: " + result);
+            }
+            else {resultLabel.setText("Unsupported conversion.");}
         } catch (NumberFormatException ex) {
             resultLabel.setText("Invalid input!");
         }
