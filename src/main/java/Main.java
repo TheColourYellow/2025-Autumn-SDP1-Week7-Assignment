@@ -5,9 +5,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class Main extends Application {
 
     private TextField inputField = new TextField();
@@ -69,22 +66,18 @@ public class Main extends Application {
     }
     public double fahrenheitToCelsius(double fahrenheit) {
         double fahrenheitVal = (fahrenheit - 32) * ((double) 5 / 9);
-        BigDecimal fahrenheitSanitised = new BigDecimal(fahrenheitVal).setScale(2, RoundingMode.DOWN);
-        return fahrenheitSanitised.doubleValue();
+        return fahrenheitVal;
     }
     public double celsiusToFahrenheit(double celsius) {
         double celsiusVal = (celsius * 9 / 5) + 32;
-        BigDecimal celsiusSanitised = new BigDecimal(celsiusVal).setScale(2, RoundingMode.DOWN);
-        return celsiusSanitised.doubleValue();
+        return celsiusVal;
     }
     public double kelvinToCelsius(double kelvin) {
         double celsiusVal = kelvin - 273.15;
-        BigDecimal celsiusSanitised =  new BigDecimal(celsiusVal).setScale(2, RoundingMode.DOWN);
-        return celsiusSanitised.doubleValue();
+        return celsiusVal;
     }
     public double celsiusToKelvin(double celsius) {
         double kelvinVal = celsius + 273.15;
-        BigDecimal kelvinSanitised = new BigDecimal(kelvinVal).setScale(2, RoundingMode.DOWN);
-        return kelvinSanitised.doubleValue();
+        return kelvinVal;
     }
 }
