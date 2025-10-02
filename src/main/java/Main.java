@@ -58,6 +58,10 @@ public class Main extends Application {
                 result = kelvinToCelsius(value);
                 resultLabel.setText("Celsius: " + result);
             }
+            else if (degreeChoiceIni.getValue().equals("Celsius") && degreeChoiceFin.getValue().equals("Kelvin") ) {
+                result = celsiusToKelvin(value);
+                resultLabel.setText("Kelvin: " + result);
+            }
             else {resultLabel.setText("Unsupported conversion.");}
         } catch (NumberFormatException ex) {
             resultLabel.setText("Invalid input!");
@@ -77,5 +81,10 @@ public class Main extends Application {
         double celsiusVal = kelvin - 273.15;
         BigDecimal celsiusSanitised =  new BigDecimal(celsiusVal).setScale(2, RoundingMode.DOWN);
         return celsiusSanitised.doubleValue();
+    }
+    public double celsiusToKelvin(double celsius) {
+        double kelvinVal = celsius + 273.15;
+        BigDecimal kelvinSanitised = new BigDecimal(kelvinVal).setScale(2, RoundingMode.DOWN);
+        return kelvinSanitised.doubleValue();
     }
 }
