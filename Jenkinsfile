@@ -24,7 +24,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/ADirin/javafx_with_mariadb.git'
+                git branch: 'main', url: 'https://github.com/TheColourYellow/2025-Autumn-SDP1-Week7-Assignment.git'
             }
         }
 
